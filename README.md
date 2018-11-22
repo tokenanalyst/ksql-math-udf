@@ -56,5 +56,9 @@ ksql> show functions;
 5. The functions are now ready to use
 ```
 ksql> SELECT key, sqrt(value) as sqrt_value from STREAM_NAME;
-ksql> SELECT key, sqrt(sum(square(value))/count()) as stdev_value from STREAM_NAME group by key;
+ksql> CREATE table MEAN_TABLE as SELECT sum(value)/count() as mean, key from STREAM_NAME group by key; 
+ksql> SELECT STREAM_NAME.key, sqrt(sum(square(value - mean))/count()) as stdev_value \
+      from STREAM_NAME left join MEAN_TABLE \
+      STREAM_NAME.key = MEAN_TABLE.key \
+      group by key;
 ```
