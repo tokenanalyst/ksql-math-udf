@@ -7,11 +7,8 @@ lazy val commonSettings = Seq(
 lazy val udfs = (project in file(".")).
   settings(commonSettings: _*).
   settings(
-    assemblyJarName in assembly := "ta-udfs.jar",
+    assemblyJarName in assembly := "ta-math-udfs.jar",
     assemblyMergeStrategy in assembly := {
-      case PathList("META-INF", "io.netty.versions.properties", xs@_*) => MergeStrategy.first
-      case PathList("com", "typesafe", "scalalogging", xs@_*) => MergeStrategy.first
-      case PathList("org", "xerial", xs@_*) => MergeStrategy.first
       case x =>
         val oldStrategy = (assemblyMergeStrategy in assembly).value
         oldStrategy(x)
@@ -27,8 +24,7 @@ lazy val udfs = (project in file(".")).
   )
 
 lazy val testDeps = Seq(
-  "org.scalatest" %% "scalatest" % "3.0.4" % Test,
-  "org.scalamock" %% "scalamock" % "4.1.0" % Test
+  "org.scalatest" %% "scalatest" % "3.0.4" % Test
 )
 
 

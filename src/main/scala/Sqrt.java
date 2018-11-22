@@ -3,7 +3,7 @@ package io.tokenanalyst.udfs;
 import io.confluent.ksql.function.udf.Udf;
 import io.confluent.ksql.function.udf.UdfDescription;
 
-import java.lang.*;
+import java.lang.Math;
 
 @UdfDescription(name = "sqrt", description = "calculates square root of a value")
 public class Sqrt {
