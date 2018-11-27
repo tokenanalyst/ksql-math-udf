@@ -50,6 +50,7 @@ ksql> show functions;
  Function Name           | Type      
 -------------------------------------
  SQUARE                  | SCALAR    
+ POW                     | SCALAR    
  SQRT                    | SCALAR  
 ```
 
