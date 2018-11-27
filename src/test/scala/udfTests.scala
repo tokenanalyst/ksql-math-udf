@@ -22,5 +22,7 @@ class PowSpec extends FlatSpec with Matchers {
   "pow" should "calculate the power correctly" in {
     val udf = new Pow()
     udf.pow(2,2) should equal(4.0)
+    udf.pow(2.0,2.0) should equal(4.0)
+    udf.pow(2.0,2) should equal(4.0)
   }
 }
