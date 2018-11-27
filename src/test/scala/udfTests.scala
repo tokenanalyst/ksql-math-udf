@@ -17,3 +17,10 @@ class SqrtSpec extends FlatSpec with Matchers {
     udf.sqrt(4) should equal(2)
   }
 }
+
+class PowSpec extends FlatSpec with Matchers {
+  "pow" should "calculate the power correctly" in {
+    val udf = new Pow()
+    udf.pow(2,2) should equal(4.0)
+  }
+}
